@@ -7,11 +7,34 @@
 
 import Foundation
 
+enum NetworkErrors: Error {
+    case badUrl
+    case badRequest
+    case decodingError
+}
+
 class WebService {
     
     // All products url: https://fakestoreapi.com/products
     
-    func getAllProducts() async throws -> [Products] {
+    func getAllProducts() async throws -> [Product] {
+        
+        guard let url = URL(string: " https://fakestoreapi.com/products") else {
+            print("Bad URL")
+            throw NetworkErrors.badUrl
+        }
+        
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw NetworkErrors.badRequest
+        }
+        
+        guard let products = try? JSONDecoder().decode([Product].self, from: data) else {
+            throw NetworkErrors.decodingError
+        }
+        
+        return products
         
     }
 }
