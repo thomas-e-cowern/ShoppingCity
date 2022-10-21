@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class WebService {
+    
+    // All products url: https://fakestoreapi.com/products
+    
+    func getAllProducts() async throws -> [Products] {
+        
+    }
+}
