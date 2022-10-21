@@ -19,7 +19,7 @@ class WebService {
     
     func getAllProducts() async throws -> [Product] {
         
-        guard let url = URL(string: " https://fakestoreapi.com/products") else {
+        guard let url = URL(string: "https://fakestoreapi.com/products") else {
             print("Bad URL")
             throw NetworkErrors.badUrl
         }
