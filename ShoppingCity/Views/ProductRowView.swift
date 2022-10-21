@@ -14,15 +14,19 @@ struct ProductRowView: View {
     var body: some View {
         HStack {
             AsyncImage(url: URL(string: product.image)) { phase in
-                if let image = phase.image {
+                switch phase {
+                case .empty:
+                    ProgressView()
+                case .success(let image):
                     image
                         .resizable()
                         .frame(width: 100, height: 100)
-                } else if phase.error != nil {
+                case .failure(let fail):
+                    Text("Failure: \(fail.localizedDescription)")
                     Image("NoImage")
                         .resizable()
                         .frame(width: 100, height: 100)
-                } else {
+                @unknown default:
                     EmptyView()
                 }
             }
