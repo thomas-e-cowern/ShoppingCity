@@ -8,26 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @EnvironmentObject private var model: ShoppingCityModel
-    
     var body: some View {
-        VStack {
-            List(model.products) { product in
-                ProductRowView(product: product)
-            }
-        }
-        .padding()
-        .task {
-            await getProducts()
-        }
-    }
-    
-    private func getProducts() async {
-        do {
-            try await model.getProducts()
-        } catch {
-            print("ContentView error in getProducts(): \(error.localizedDescription)")
+        TabView {
+            HomeView()
+                .tabItem {
+                    Text("Home")
+                    
+                }
         }
     }
 }
@@ -35,6 +22,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(ShoppingCityModel(webService: WebService()))
     }
 }
