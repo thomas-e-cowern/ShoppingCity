@@ -12,9 +12,9 @@ struct ProductRowView: View {
     let product: Product
     
     var body: some View {
-        HStack {
+        VStack {
             Text(product.title)
-            Text(product.price as NSNumber)
+            Text(product.price as NSNumber, formatter: NumberFormatter.currency)
         }
     }
 }

@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             List(model.products) { product in
-                Text(product.title)
+                ProductRowView(product: product)
             }
         }
         .padding()
