@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class ShoppingCityModel: ObservableObject {
     
     let webService: WebService

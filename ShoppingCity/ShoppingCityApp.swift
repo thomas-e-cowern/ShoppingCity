@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct ShoppingCityApp: App {
+    
+    @StateObject private var model: ShoppingCityModel
+
+    init() {
+        let webService = WebService()
+        _model = StateObject(wrappedValue: ShoppingCityModel(webService: webService))
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(model)
         }
     }
 }
