@@ -15,6 +15,7 @@
 		4DC812B02902BC0500602A90 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC812AF2902BC0500602A90 /* Product.swift */; };
 		4DC812B22902C10E00602A90 /* ShoppingCityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC812B12902C10E00602A90 /* ShoppingCityModel.swift */; };
 		4DC812B52902C74600602A90 /* ProductRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC812B42902C74600602A90 /* ProductRowView.swift */; };
+		4DC812B82902C84E00602A90 /* NumberFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC812B72902C84E00602A90 /* NumberFormatter+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		4DC812AF2902BC0500602A90 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		4DC812B12902C10E00602A90 /* ShoppingCityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCityModel.swift; sourceTree = "<group>"; };
 		4DC812B42902C74600602A90 /* ProductRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRowView.swift; sourceTree = "<group>"; };
+		4DC812B72902C84E00602A90 /* NumberFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		4DC8129C2902BA1300602A90 /* ShoppingCity */ = {
 			isa = PBXGroup;
 			children = (
+				4DC812B62902C83800602A90 /* Extensions */,
 				4DC812B32902C73200602A90 /* Views */,
 				4DC812AE2902BBF400602A90 /* Models */,
 				4DC812AB2902BB6700602A90 /* WebService */,
@@ -101,6 +104,14 @@
 				4DC812B42902C74600602A90 /* ProductRowView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4DC812B62902C83800602A90 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4DC812B72902C84E00602A90 /* NumberFormatter+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +186,7 @@
 			files = (
 				4DC812AD2902BB7600602A90 /* WebService.swift in Sources */,
 				4DC812B52902C74600602A90 /* ProductRowView.swift in Sources */,
+				4DC812B82902C84E00602A90 /* NumberFormatter+Extensions.swift in Sources */,
 				4DC812A02902BA1300602A90 /* ContentView.swift in Sources */,
 				4DC8129E2902BA1300602A90 /* ShoppingCityApp.swift in Sources */,
 				4DC812B22902C10E00602A90 /* ShoppingCityModel.swift in Sources */,
