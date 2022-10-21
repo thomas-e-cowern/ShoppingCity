@@ -37,4 +37,24 @@ class WebService {
         return products
         
     }
+    
+    func getHomeViewProducts() async throws -> [Product] {
+
+        guard let url = URL(string: "https://fakestoreapi.com/products?limit=3") else {
+            print("Bad URL")
+            throw NetworkErrors.badUrl
+        }
+
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw NetworkErrors.badRequest
+        }
+        
+        guard let homeProducts = try? JSONDecoder().decode([Product].self, from: data) else {
+            throw NetworkErrors.decodingError
+        }
+
+        return homeProducts
+    }
 }

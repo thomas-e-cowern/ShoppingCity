@@ -13,19 +13,20 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-            List(model.products) { product in
+            List(model.homeViewProducts) { product in
                 ProductRowView(product: product)
             }
         }
-        .padding()
         .task {
-            await getProducts()
+            await getHomeViewProducts()
         }
+        .padding()
     }
     
-    private func getProducts() async {
+    private func getHomeViewProducts() async {
+        print("Inside")
         do {
-            try await model.getProducts()
+            try await model.getHomeViewProducts()
         } catch {
             print("ContentView error in getProducts(): \(error.localizedDescription)")
         }

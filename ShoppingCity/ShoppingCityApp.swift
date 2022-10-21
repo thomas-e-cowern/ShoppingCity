@@ -19,7 +19,7 @@ struct ShoppingCityApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+           ContentView()
                 .environmentObject(model)
         }
     }
