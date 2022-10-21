@@ -13,6 +13,14 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
+            
+            Text("Shopping City!")
+                .font(.largeTitle)
+            
+            Image("online-shopping")
+                .resizable()
+                .frame(width: 200, height: 200)
+            
             List(model.homeViewProducts) { product in
                 ProductRowView(product: product)
             }
