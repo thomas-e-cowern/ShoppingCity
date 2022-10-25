@@ -13,6 +13,7 @@ class ShoppingCityModel: ObservableObject {
     let webService: WebService
     @Published private(set) var products: [Product] = []
     @Published private(set) var homeViewProducts: [Product] = []
+    @Published private(set) var categories: [String] = []
     
     init(webService: WebService) {
         self.webService = webService
@@ -24,6 +25,10 @@ class ShoppingCityModel: ObservableObject {
     
     func getHomeViewProducts() async throws {
         homeViewProducts = try await webService.getHomeViewProducts()
+    }
+    
+    func getCategories() async throws {
+        categories = try await webService.getCategories()
     }
     
 }
