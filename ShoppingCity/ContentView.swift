@@ -23,6 +23,11 @@ struct ContentView: View {
                     Text("Search")
                     Image("search")
                 }
+            CategoryView()
+                .tabItem {
+                    Text("Categories")
+                    Image("category")
+                }
         }
     }
 }
