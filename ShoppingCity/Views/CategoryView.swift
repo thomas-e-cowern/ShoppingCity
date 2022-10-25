@@ -8,8 +8,26 @@
 import SwiftUI
 
 struct CategoryView: View {
+    
+    @EnvironmentObject private var model: ShoppingCityModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            List(model.categories, id: \.self) { category in
+                Text(category)
+            }
+        }
+        .task {
+            await getCategories()
+        }
+    }
+    
+    private func getCategories() async {
+        do {
+            try await model.getCategories()
+        } catch {
+            print("There was a problem getting categories")
+        }
     }
 }
 
