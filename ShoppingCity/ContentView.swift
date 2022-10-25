@@ -26,7 +26,7 @@ struct ContentView: View {
             CategoryView()
                 .tabItem {
                     Text("Categories")
-                    Image("category")
+                    Image("options")
                 }
         }
     }
