@@ -12,9 +12,9 @@ struct CategoryView: View {
     @EnvironmentObject private var model: ShoppingCityModel
     
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             List(model.categories, id: \.self) { category in
-                Text(category)
+                CategoryCardView(category: category)
             }
         }
         .task {
@@ -34,5 +34,6 @@ struct CategoryView: View {
 struct CategoryVIEW_Previews: PreviewProvider {
     static var previews: some View {
         CategoryView()
+            .environmentObject(ShoppingCityModel(webService: WebService()))
     }
 }
