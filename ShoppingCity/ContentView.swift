@@ -28,6 +28,11 @@ struct ContentView: View {
                     Text("Categories")
                     Image("options")
                 }
+            CartView()
+                .tabItem {
+                    Text("Cart")
+                    Image("trolley")
+                }
         }
     }
 }
