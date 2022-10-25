@@ -15,7 +15,9 @@ struct CategoryView: View {
         VStack(alignment: .center) {
             List(model.categories, id: \.self) { category in
                 CategoryCardView(category: category)
+                    .centerHorizontally()
             }
+           
         }
         .task {
             await getCategories()
