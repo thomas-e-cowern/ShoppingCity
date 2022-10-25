@@ -18,6 +18,11 @@ struct ContentView: View {
                     Text("Home")
                     Image("house")
                 }
+            SearchView()
+                .tabItem {
+                    Text("Search")
+                    Image("search")
+                }
         }
     }
 }
