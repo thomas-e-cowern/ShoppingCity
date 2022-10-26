@@ -13,7 +13,17 @@ struct SpecificCategoryView: View {
     var category: String
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(model.categoryViewProducts) { product in
+            ProductRowView(product: product)
+        }
+    }
+    
+    private func getSpecificCategoryProducts(category: String) async {
+        do {
+            try await model.getCategoryProducts(category: category)
+        } catch {
+            print("There was a problem getting category products: \(error.localizedDescription)")
+        }
     }
 }
 
