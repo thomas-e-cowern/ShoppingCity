@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct ProductDetailView: View {
+    
+    var product: Product
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(product.title)
     }
 }
 
 struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetailView()
+        ProductDetailView(product: Product(id: 1, title: "Test Product", price: 12.99, description: "Test product description", category: "electronics", image: "", rating: Rating(rate: 4.0, count: 4)))
     }
 }
