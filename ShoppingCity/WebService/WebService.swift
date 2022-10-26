@@ -77,4 +77,24 @@ class WebService {
         
         return categories
     }
+    
+    func getSpecificCategory() async throws -> [Product] {
+        
+        guard let url = URL(string: "https://fakestoreapi.com/products/category/jewelery") else {
+            print("Bad URL")
+            throw NetworkErrors.badUrl
+        }
+        
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw NetworkErrors.badRequest
+        }
+        
+        guard let catetoryProducts = try? JSONDecoder().decode([Product].self, from: data) else {
+            throw NetworkErrors.decodingError
+        }
+        
+        return catetoryProducts
+    }
 }

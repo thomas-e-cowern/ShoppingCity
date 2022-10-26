@@ -15,7 +15,6 @@ struct CategoryCardView: View {
         VStack(alignment: .center){
             Text(category)
                 .padding()
-                .border(.red)
         }
     }
 }
