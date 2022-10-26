@@ -12,30 +12,38 @@ struct ProductDetailView: View {
     var product: Product
     
     var body: some View {
-        VStack {
-            Text(product.title)
-                .padding()
-                .font(.title)
-            AsyncImage(url: URL(string: product.image)) { phase in
-                switch phase {
-                case .empty:
-                    ProgressView()
-                case .success(let image):
-                    image
-                        .resizable()
-                        .frame(width: 250, height: 250)
-                case .failure(let fail):
-                    Text("Failure: \(fail.localizedDescription)")
-                    Image("NoImage")
-                        .resizable()
-                        .frame(width: 250, height: 250)
-                @unknown default:
-                    EmptyView()
+        ScrollView {
+            VStack {
+                Text(product.title)
+                    .padding()
+                    .font(.title)
+                AsyncImage(url: URL(string: product.image)) { phase in
+                    switch phase {
+                    case .empty:
+                        ProgressView()
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .frame(width: 250, height: 250)
+                    case .failure(let fail):
+                        Text("Failure: \(fail.localizedDescription)")
+                        Image("NoImage")
+                            .resizable()
+                            .frame(width: 250, height: 250)
+                    @unknown default:
+                        EmptyView()
+                    }
                 }
-            }
-            .padding()
-            HStack {
-                Text("Price: \(product.price as NSNumber, formatter: NumberFormatter.currency)")
+                .padding()
+                HStack {
+                    Text("Price: \(product.price as NSNumber, formatter: NumberFormatter.currency)")
+                    Text("Rating: \(product.rating.rate)")
+                }
+                .padding()
+                VStack {
+                    Text(product.description)
+                }
+                .padding()
             }
         }
         
