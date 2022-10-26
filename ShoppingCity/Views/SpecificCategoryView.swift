@@ -10,9 +10,10 @@ import SwiftUI
 struct SpecificCategoryView: View {
     
     @EnvironmentObject private var model: ShoppingCityModel
-    var category: String
+    var category: String = ""
     
     var body: some View {
+        Text("Category: \(category)")
         VStack {
             List(model.categoryViewProducts) { product in
                 ProductRowView(product: product)

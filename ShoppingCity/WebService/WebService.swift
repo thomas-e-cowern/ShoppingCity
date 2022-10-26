@@ -80,6 +80,16 @@ class WebService {
     
     func getSpecificCategory(category: String) async throws -> [Product] {
         
+        var category = category
+        
+        if category == "men's clothing" {
+            category =  "men's%20clothing"
+        }
+        
+        if category == "women's clothing" {
+            category =  "women's%20clothing"
+        }
+        
         guard let url = URL(string: "https://fakestoreapi.com/products/category/\(category)") else {
             print("Bad URL")
             throw NetworkErrors.badUrl
