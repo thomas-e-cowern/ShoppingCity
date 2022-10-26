@@ -13,8 +13,13 @@ struct SpecificCategoryView: View {
     var category: String
     
     var body: some View {
-        List(model.categoryViewProducts) { product in
-            ProductRowView(product: product)
+        VStack {
+            List(model.categoryViewProducts) { product in
+                ProductRowView(product: product)
+            }
+        }
+        .task {
+            await getSpecificCategoryProducts(category: category)
         }
     }
     
