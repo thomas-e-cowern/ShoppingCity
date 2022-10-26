@@ -78,9 +78,9 @@ class WebService {
         return categories
     }
     
-    func getSpecificCategory() async throws -> [Product] {
+    func getSpecificCategory(category: String) async throws -> [Product] {
         
-        guard let url = URL(string: "https://fakestoreapi.com/products/category/jewelery") else {
+        guard let url = URL(string: "https://fakestoreapi.com/products/category/\(category)") else {
             print("Bad URL")
             throw NetworkErrors.badUrl
         }

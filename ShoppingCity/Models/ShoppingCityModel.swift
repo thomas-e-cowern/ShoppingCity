@@ -32,8 +32,8 @@ class ShoppingCityModel: ObservableObject {
         categories = try await webService.getCategories()
     }
     
-    func getCategoryProducts() async throws {
-        categoryViewProducts = try await webService.getSpecificCategory()
+    func getCategoryProducts(category: String) async throws {
+        categoryViewProducts = try await webService.getSpecificCategory(category: category)
     }
     
 }
