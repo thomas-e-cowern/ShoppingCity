@@ -13,10 +13,11 @@ struct SpecificCategoryView: View {
     var category: String = ""
     
     var body: some View {
-        Text("Category: \(category)")
         VStack {
             List(model.categoryViewProducts) { product in
-                ProductRowView(product: product)
+                NavigationLink(destination: ProductDetailView(product: product)) {
+                    ProductRowView(product: product)
+                }
             }
         }
         .task {
