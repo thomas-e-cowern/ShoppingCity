@@ -13,9 +13,13 @@ struct CategoryView: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            List(model.categories, id: \.self) { category in
-                CategoryCardView(category: category)
-                    .centerHorizontally()
+            NavigationView {
+                List(model.categories, id: \.self) { category in
+                    NavigationLink(destination: SpecificCategoryView(category: category)) {
+                        CategoryCardView(category: category)
+                            .centerHorizontally()
+                    }
+                }
             }
            
         }
