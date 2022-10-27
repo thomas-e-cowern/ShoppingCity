@@ -18,6 +18,7 @@ struct SearchView: View {
             
             if searchResults.isEmpty && !searchText.isEmpty {
                 Text("Sorry, we couldn't find what your are looking for")
+                    .padding()
             } else {
                 VStack {
                     List(searchResults) { product in
