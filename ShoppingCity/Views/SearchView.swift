@@ -16,20 +16,24 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Searching for \(searchText)")
+                List(model.products) { product in
+                    NavigationLink(destination: ProductDetailView(product: product)) {
+                        ProductRowView(product: product)
+                    }
+                }
                     .searchable(text: $searchText, prompt: "Search our inventory")
-                .navigationTitle("Search for Products!")
+                    .navigationTitle("Search for Products!")
             }
             .task {
-                await getHomeViewProducts()
+                await getProducts()
             }
         }
     }
     
-    private func getHomeViewProducts() async {
+    private func getProducts() async {
 
         do {
-            try await model.getHomeViewProducts()
+            try await model.getProducts()
         } catch {
             print("ContentView error in getProducts(): \(error.localizedDescription)")
         }
