@@ -12,23 +12,27 @@ struct HomeView: View {
     @EnvironmentObject private var model: ShoppingCityModel
     
     var body: some View {
-        VStack {
-            
-            Text("Shopping City!")
-                .font(.largeTitle)
-            
-            Image("online-shopping")
-                .resizable()
-                .frame(width: 200, height: 200)
-            
-            List(model.homeViewProducts) { product in
-                ProductRowView(product: product)
+        NavigationView {
+            VStack {
+                
+                Text("Shopping City!")
+                    .font(.largeTitle)
+                
+                Image("online-shopping")
+                    .resizable()
+                    .frame(width: 200, height: 200)
+                
+                List(model.homeViewProducts) { product in
+                    NavigationLink(destination: ProductDetailView(product: product)) {
+                        ProductRowView(product: product)
+                    }
+                }
             }
-        }
-        .task {
-            await getHomeViewProducts()
-        }
+            .task {
+                await getHomeViewProducts()
+            }
         .padding()
+        }
     }
     
     private func getHomeViewProducts() async {
