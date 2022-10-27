@@ -36,7 +36,7 @@ struct HomeView: View {
     }
     
     private func getHomeViewProducts() async {
-        print("Inside")
+
         do {
             try await model.getHomeViewProducts()
         } catch {
