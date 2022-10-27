@@ -22,9 +22,12 @@ struct HomeView: View {
                     .resizable()
                     .frame(width: 200, height: 200)
                 
-                List(model.randomProducts) { product in
-                    NavigationLink(destination: ProductDetailView(product: product)) {
-                        ProductRowView(product: product)
+                VStack {
+                    Text("Check out some random products!")
+                    List(model.randomProducts) { product in
+                        NavigationLink(destination: ProductDetailView(product: product)) {
+                            ProductRowView(product: product)
+                        }
                     }
                 }
             }

@@ -126,10 +126,7 @@ class WebService {
         }
         
         var randomProductsSelected: [Product] = []
-        
-        
-        
-        
+
         for _ in 1...3 {
             let randomInt = Int.random(in: 1..<randomProducts.count)
             randomProductsSelected.append(randomProducts[randomInt])
