@@ -21,11 +21,8 @@ struct ProductRowView: View {
                     image
                         .resizable()
                         .frame(width: 100, height: 100)
-                case .failure(let fail):
-                    Text("Failure: \(fail.localizedDescription)")
-                    Image("NoImage")
-                        .resizable()
-                        .frame(width: 100, height: 100)
+                case .failure(_):
+                    Text("No Image Available")
                 @unknown default:
                     EmptyView()
                 }
@@ -34,7 +31,9 @@ struct ProductRowView: View {
             
             VStack(alignment: .trailing) {
                 Text(product.title)
+                    .font(.footnote)
                 Text(product.price as NSNumber, formatter: NumberFormatter.currency)
+                    .font(.callout)
             }
         }
     }
