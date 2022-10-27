@@ -37,7 +37,7 @@ struct ProductDetailView: View {
                 .padding()
                 HStack {
                     Text("Price: \(product.price as NSNumber, formatter: NumberFormatter.currency)")
-                    Text("Rating: \(product.rating.rate)")
+                    Text("Rating: \(product.rating.rate.rounded(toPlaces: 2))")
                 }
                 .padding()
                 VStack {
