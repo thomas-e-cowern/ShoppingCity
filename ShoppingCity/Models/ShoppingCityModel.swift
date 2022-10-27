@@ -15,6 +15,7 @@ class ShoppingCityModel: ObservableObject {
     @Published private(set) var homeViewProducts: [Product] = []
     @Published private(set) var categories: [String] = []
     @Published private(set) var categoryViewProducts: [Product] = []
+    @Published private(set) var randomProducts: [Product] = []
     
     init(webService: WebService) {
         self.webService = webService
@@ -36,4 +37,7 @@ class ShoppingCityModel: ObservableObject {
         categoryViewProducts = try await webService.getSpecificCategory(category: category)
     }
     
+    func getRandomProdcuts() async throws {
+        randomProducts = try await webService.getRandomProducts()
+    }
 }
