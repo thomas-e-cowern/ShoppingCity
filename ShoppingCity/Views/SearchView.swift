@@ -15,17 +15,22 @@ struct SearchView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                List(model.products) { product in
-                    NavigationLink(destination: ProductDetailView(product: product)) {
-                        ProductRowView(product: product)
+            
+            if searchResults.isEmpty && !searchText.isEmpty {
+                Text("Sorry, we couldn't find what your are looking for")
+            } else {
+                VStack {
+                    List(searchResults) { product in
+                        NavigationLink(destination: ProductDetailView(product: product)) {
+                            ProductRowView(product: product)
+                                .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search our inventory")
+                        }
                     }
+                        .navigationTitle("Search for Products!")
                 }
-                    .searchable(text: $searchText, prompt: "Search our inventory")
-                    .navigationTitle("Search for Products!")
-            }
-            .task {
-                await getProducts()
+                .task {
+                    await getProducts()
+                }
             }
         }
     }
@@ -38,6 +43,14 @@ struct SearchView: View {
             print("ContentView error in getProducts(): \(error.localizedDescription)")
         }
     }
+    
+    var searchResults: [Product] {
+            if searchText.isEmpty {
+                return model.products
+            } else {
+                return model.products.filter { $0.title.contains(searchText) }
+            }
+        }
 }
 
 struct SearchView_Previews: PreviewProvider {
