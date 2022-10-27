@@ -121,7 +121,7 @@ class WebService {
             throw NetworkErrors.badRequest
         }
         
-        guard let randomProducts = try? JSONDecoder().decode([Product].self, from: data) else {
+        guard var randomProducts = try? JSONDecoder().decode([Product].self, from: data) else {
             throw NetworkErrors.decodingError
         }
         
@@ -133,6 +133,7 @@ class WebService {
         for _ in 1...3 {
             let randomInt = Int.random(in: 1..<randomProducts.count)
             randomProductsSelected.append(randomProducts[randomInt])
+            randomProducts.remove(at: randomInt)
         }
         
         print("Random products: \(randomProductsSelected)")
