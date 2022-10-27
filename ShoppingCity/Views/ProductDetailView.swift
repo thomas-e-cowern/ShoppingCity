@@ -35,15 +35,23 @@ struct ProductDetailView: View {
                     }
                 }
                 .padding()
-                HStack {
+                VStack {
                     Text("Price: \(product.price as NSNumber, formatter: NumberFormatter.currency)")
-                    Text("Rating: \(product.rating.rate, specifier: "%.2f")")
+                        .padding()
+                        .font(.title)
+                    Text("Customer Rating: \(product.rating.rate, specifier: "%.2f")")
+                        .font(.subheadline)
                 }
                 .padding()
                 VStack {
                     Text(product.description)
                 }
                 .padding()
+                
+                Button("Add To Cart") {
+                    // Add to cart
+                }
+                .padding(.bottom, 50)
             }
         }
         
