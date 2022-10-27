@@ -17,14 +17,14 @@ struct SearchView: View {
         NavigationView {
             
             if searchResults.isEmpty && !searchText.isEmpty {
-                Text("Sorry, we couldn't find what your are looking for")
+                Text("Sorry, we couldn't find what your are looking for").centerHorizontally()
                     .padding()
             } else {
                 VStack {
                     List(searchResults) { product in
                         NavigationLink(destination: ProductDetailView(product: product)) {
                             ProductRowView(product: product)
-                                .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search our inventory")
+                                
                         }
                     }
                         .navigationTitle("Search for Products!")
@@ -34,6 +34,7 @@ struct SearchView: View {
                 }
             }
         }
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search our inventory")
     }
     
     private func getProducts() async {
