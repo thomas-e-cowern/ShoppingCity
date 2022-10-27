@@ -22,23 +22,23 @@ struct HomeView: View {
                     .resizable()
                     .frame(width: 200, height: 200)
                 
-                List(model.homeViewProducts) { product in
+                List(model.randomProducts) { product in
                     NavigationLink(destination: ProductDetailView(product: product)) {
                         ProductRowView(product: product)
                     }
                 }
             }
             .task {
-                await getHomeViewProducts()
+                await getRandomProducts()
             }
         .padding()
         }
     }
     
-    private func getHomeViewProducts() async {
+    private func getRandomProducts() async {
 
         do {
-            try await model.getHomeViewProducts()
+            try await model.getRandomProdcuts()
         } catch {
             print("ContentView error in getProducts(): \(error.localizedDescription)")
         }

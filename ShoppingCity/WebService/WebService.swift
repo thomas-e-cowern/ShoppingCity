@@ -130,14 +130,14 @@ class WebService {
         
         
         
-        for i in 1...3 {
+        for _ in 1...3 {
             let randomInt = Int.random(in: 1..<randomProducts.count)
-            randomProductsSelected.append(randomProducts[i])
+            randomProductsSelected.append(randomProducts[randomInt])
         }
         
         print("Random products: \(randomProductsSelected)")
         
-        return randomProducts
+        return randomProductsSelected
         
     }
 }
