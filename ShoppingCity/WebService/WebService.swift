@@ -133,8 +133,6 @@ class WebService {
             randomProducts.remove(at: randomInt)
         }
         
-        print("Random products: \(randomProductsSelected)")
-        
         return randomProductsSelected
         
     }
