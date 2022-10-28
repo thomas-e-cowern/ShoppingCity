@@ -11,7 +11,25 @@ struct LoginView: View {
     var body: some View {
         VStack {
             Form {
-                TextField
+                VStack {
+                    Text("Welcome!")
+                        .font(.largeTitle)
+                        .fontWeight(.semibold)
+                        .padding(.bottom, 20)
+                    
+                    Image("store")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 150, height: 150)
+                        .clipped()
+                        .cornerRadius(150)
+                        .padding(.bottom, 30)
+                    
+                    Text("to Shopping City")
+                        .font(.largeTitle)
+                        .fontWeight(.semibold)
+                        .padding(.bottom, 20)
+                }.centerHorizontally()
             }
         }
     }
