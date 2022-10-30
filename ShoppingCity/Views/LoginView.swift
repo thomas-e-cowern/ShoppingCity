@@ -45,13 +45,16 @@ struct LoginView: View {
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
                 
-                Text("LOGIN")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(width: 220, height: 60)
-                    .background(Color.green)
-                    .cornerRadius(15.0)
+                Button("Login") {
+                    print("Login username: \(username)")
+                    print("Login password: \(password)")
+                }
+                .font(.headline)
+                .foregroundColor(.white)
+                .padding()
+                .frame(width: 220, height: 60)
+                .background(Color.green)
+                .cornerRadius(15.0)
             }
             .padding()
             .centerHorizontally()
