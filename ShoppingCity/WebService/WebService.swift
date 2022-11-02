@@ -136,4 +136,9 @@ class WebService {
         return randomProductsSelected
         
     }
+    
+    func login(username: String, password: String) {
+        print("Username: \(username)")
+        print("Password: \(password)")
+    }
 }
