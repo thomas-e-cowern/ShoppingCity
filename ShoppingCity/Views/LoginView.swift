@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
     
+    @EnvironmentObject private var model: ShoppingCityModel
+    
     @State var username: String = ""
     @State var password: String = ""
     
